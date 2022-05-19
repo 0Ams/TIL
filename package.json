@@ -8,6 +8,6 @@
     "deploy": "git push origin `git subtree split --prefix build main`:gh-pages --force"
   },
   "dependencies": {
-    "vuepress": "^1.5.2"
+    "vuepress": ""
   }
 }
