@@ -10,8 +10,22 @@ module.exports = {
       'link',
       {
         rel: 'icon',
-        href: '/logo.png',
+        href: '/10ms_logo.png',
       },
+    ],
+    [
+      'script',
+      {
+        async: true,
+        src: 'https://www.googletagmanager.com/gtag/js?id=G-1SM39X20B1',
+      },
+    ],
+    [
+      'script',
+      {},
+      [
+        "window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-1SM39X20B1');",
+      ],
     ],
   ],
   themeConfig: {
