@@ -10,9 +10,9 @@ jobs:
       uses: actions/checkout@main
 
     - name: Deploy Build Files
-      uses: jenkey2011/vuepress-deploy@1.0.1
+      uses: jenkey2011/vuepress-deploy@1.6.1
       env:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         BUILD_SCRIPT: yarn && yarn build
-        TARGET_BRANCH: develop-gh-pages
+        TARGET_BRANCH: gh-pages
         BUILD_DIR: build/
