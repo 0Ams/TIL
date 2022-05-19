@@ -58,4 +58,5 @@ module.exports = {
       },
     ],
   },
+  ga: 'G-1SM39X20B1',
 };
