@@ -1,4 +1,12 @@
-
+---
+layout: post
+title: "Reveal in Vscode"
+date: 2022-05-19
+excerpt: "Reveal 사용 방법"
+writer: 10ms
+tags: [general, ppt]
+comments: false
+---
 
 # Reveal in Vscode
 

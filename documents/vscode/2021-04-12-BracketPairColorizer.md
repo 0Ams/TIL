@@ -3,7 +3,7 @@ layout: post
 title: "Bracket Pair Colorizer for vscode's extensions"
 date: 2021-04-12
 excerpt: "vscode recommand extensions"
-writer: '0ams'
+writer: '10ms'
 tags: [vscode, extensions]
 comments: false
 ---

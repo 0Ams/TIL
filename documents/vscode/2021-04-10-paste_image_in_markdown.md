@@ -3,7 +3,7 @@ layout: post
 title: "VSCODE에서 Markdown 작성 시 편리하게 이미지 넣는법"
 date: 2021-04-10
 excerpt: "paste image"
-writer: '0ams'
+writer: '10ms'
 tags: [vscode, paste, image, markdown, document]
 comments: true
 ---

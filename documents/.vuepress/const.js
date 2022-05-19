@@ -10,6 +10,7 @@ function getFiles(name) {
   );
 }
 
+exports.GeneralList = getFiles('General');
 exports.MSAList = getFiles('MSA');
 exports.ETCList = getFiles('ETC');
 exports.vscodeList = getFiles('vscode');

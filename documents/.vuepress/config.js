@@ -17,6 +17,10 @@ module.exports = {
   themeConfig: {
     sidebar: [
       {
+        title: 'General',
+        children: CONST.GeneralList,
+      },
+      {
         title: 'MSA',
         children: CONST.MSAList,
       },
