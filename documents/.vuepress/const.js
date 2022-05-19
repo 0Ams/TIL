@@ -12,3 +12,4 @@ function getFiles(name) {
 
 exports.MSAList = getFiles('MSA');
 exports.ETCList = getFiles('ETC');
+exports.vscodeList = getFiles('vscode');

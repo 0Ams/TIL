@@ -21,6 +21,10 @@ module.exports = {
         children: CONST.MSAList,
       },
       {
+        title: 'vscode',
+        children: CONST.vscodeList,
+      },
+      {
         title: 'ETC',
         children: CONST.ETCList,
       },
