@@ -8,6 +8,12 @@ tags: [general, ppt]
 comments: false
 ---
 
+::: info
+F키 또는 F11를 누르면 전체화면으로 전환됨
+:::
+
+@slidestart [moon]
+
 # Reveal in Vscode
 
 ---
@@ -54,5 +60,14 @@ title: "VSCode Reveal intro"
 
 ---
 
+---
+# vuepress 와 reveal 혼합
+* vuepress 에서 reveal을 사용 할 수 있다. 
+* F11 또는 F키를 누르면 전체화면으로 전환됨
+
+---
+
 END
 ---
+
+@slideend

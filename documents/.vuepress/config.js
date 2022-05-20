@@ -9,10 +9,21 @@ module.exports = {
     '@vuepress/back-to-top',
     '@vuepress/last-updated',
     '@vuepress/active-header-links',
-    '@vuepress/google-analytics',
-    {
-      ga: 'G-1SM39X20B1',
-    },
+    [
+      '@vuepress/google-analytics',
+      {
+        ga: 'G-1SM39X20B1',
+      },
+    ],
+    [
+      'md-enhance',
+      {
+        presentation: true,
+        mermaid: true,
+        container: true,
+        mark: true,
+      },
+    ],
   ],
   head: [
     [

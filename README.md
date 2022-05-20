@@ -1,5 +1,10 @@
 # Today I Learned
 
+## Required
+```
+  node >= v16.16.4
+```
+
 ## 작성 구조
 ```
   DIR - images
