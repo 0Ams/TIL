@@ -11,6 +11,9 @@
     "vuepress": ""
   },
   "devDependencies": {
-    "@vuepress/plugin-back-to-top": ""
+    "@vuepress/plugin-active-header-links": "^1.9.7",
+    "@vuepress/plugin-back-to-top": "^1.9.7",
+    "@vuepress/plugin-google-analytics": "^1.9.7",
+    "@vuepress/plugin-last-updated": "^1.9.7"
   }
 }

@@ -5,7 +5,15 @@ module.exports = {
   description: `Eddie's Personal Wiki (Today I Learned)`,
   base: '/TIL/',
   dest: 'build',
-  plugins: ['@vuepress/back-to-top'],
+  plugins: [
+    '@vuepress/back-to-top',
+    '@vuepress/last-updated',
+    '@vuepress/active-header-links',
+    '@vuepress/google-analytics',
+    {
+      ga: 'G-1SM39X20B1',
+    },
+  ],
   head: [
     [
       'link',
