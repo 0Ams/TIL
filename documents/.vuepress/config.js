@@ -63,6 +63,10 @@ module.exports = {
         children: CONST.vscodeList,
       },
       {
+        title: 'PT',
+        children: CONST.PTList,
+      },
+      {
         title: 'ETC',
         children: CONST.ETCList,
       },
@@ -79,4 +83,10 @@ module.exports = {
     ],
   },
   ga: 'G-1SM39X20B1',
+  mdEnhance: {
+    enableAll: true,
+    presentation: {
+      plugins: ['highlight', 'search', 'notes', 'zoom', 'anything', 'audio', 'chalkboard'],
+    },
+  },
 };
