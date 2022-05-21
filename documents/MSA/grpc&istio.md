@@ -16,10 +16,11 @@ comments: true
 
 ## [Envoy](https://www.envoyproxy.io)
 
-- 고성능 프록시 사이드카로서 service mesh의 모든 서비스에 대한 inbound/outbound 트래픽을 처리 하는 컴포넌트.
-- proxy 역할을 수행하며 비지니스 로직을 처리 하는 pod 에 sidecar 패턴 형태로 같이 배포되어 모든 서비스에 대한 In/Out bound 트래픽을 조정하는 역할을 한다.
+* 고성능 프록시 사이드카로서 service mesh의 모든 서비스에 대한 inbound/outbound 트래픽을 처리 하는 컴포넌트.
+* proxy 역할을 수행하며 비지니스 로직을 처리 하는 pod 에 sidecar 패턴 형태로 같이 배포되어 모든 서비스에 대한 In/Out bound 트래픽을 조정하는 역할을 한다.
 
 ### 기능
+
 * dynamic service discovery
 * load balancing,
 * TLS termination
