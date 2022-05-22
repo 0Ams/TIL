@@ -28,6 +28,7 @@ A simple slide demo and useful hints.
 
 <!-- .element: class="r-fit-text" -->
 
+<!-- 페이지 이동 옵션 -->
 [👇](#/1/1)
 
 --
@@ -111,20 +112,6 @@ Code block will get auto highlight if you enable `highlight` plugin.
 ```js
 const a = 1;
 ```
-
---
-
-<!-- .slide: data-auto-animate -->
-
-## Markdown
-
-You can use all kinds of markup in slides.
-
-You can also write math equation using tex syntax if you enable `math` plugin.
-
-$$
-J(\theta_0,\theta_1) = \sum_{i=0}
-$$
 
 --
 
@@ -426,8 +413,19 @@ Click again to zoom back out.
 
 ---
 
+### TEST ZONE
+
+![IMG](/TIL/assets/img/2022-05-21-23-37-10.4a82ce86.png)
+
+* 이미지 링크가 변환이 안되네?
+* reveal에서 별도 변환해서 그런가? config설정으로 별도로 못하나?
+
+---
+
 <!-- .element: class="r-fit-text" -->
 
 ## The End
 
 @slideend
+
+![IMG](./images/2022-05-21-23-37-10.png)
