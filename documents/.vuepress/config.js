@@ -81,8 +81,8 @@ module.exports = {
         link: 'https://github.com/0ams/',
       },
       {
-        text: 'Blog',
-        link: 'https://0ams.wordpress.com/',
+        text: 'mysetting',
+        link: 'https://mysetting.io/u/0Ams',
       },
     ],
   },
