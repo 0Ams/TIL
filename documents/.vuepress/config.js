@@ -59,6 +59,10 @@ module.exports = {
         children: CONST.MSAList,
       },
       {
+        title: 'Platform',
+        children: CONST.PlatformList,
+      },
+      {
         title: 'vscode',
         children: CONST.vscodeList,
       },
