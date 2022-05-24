@@ -4,7 +4,7 @@ function getFiles(name) {
   const files = fs.readdirSync(`./documents/${name}`);
   return _.without(
     _.map(files, (f) => {
-      if (f !== 'images') return `${name}/${f}`;
+      if (f !== 'images' && !f.includes('.temp')) return `${name}/${f}`;
     }),
     undefined
   );
