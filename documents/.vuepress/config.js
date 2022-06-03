@@ -67,6 +67,10 @@ module.exports = {
         children: CONST.vscodeList,
       },
       {
+        title: 'Theory',
+        children: CONST.TheoryList,
+      },
+      {
         title: 'PT',
         children: CONST.PTList,
       },

@@ -16,3 +16,4 @@ exports.ETCList = getFiles('ETC');
 exports.vscodeList = getFiles('vscode');
 exports.PTList = getFiles('PT');
 exports.PlatformList = getFiles('Platform');
+exports.TheoryList = getFiles('Theory');
