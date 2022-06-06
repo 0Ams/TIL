@@ -49,36 +49,7 @@ module.exports = {
     ],
   ],
   themeConfig: {
-    sidebar: [
-      {
-        title: 'General',
-        children: CONST.GeneralList,
-      },
-      {
-        title: 'MSA',
-        children: CONST.MSAList,
-      },
-      {
-        title: 'Platform',
-        children: CONST.PlatformList,
-      },
-      {
-        title: 'vscode',
-        children: CONST.vscodeList,
-      },
-      {
-        title: 'Theory',
-        children: CONST.TheoryList,
-      },
-      {
-        title: 'PT',
-        children: CONST.PTList,
-      },
-      {
-        title: 'ETC',
-        children: CONST.ETCList,
-      },
-    ],
+    sidebar: CONST.sideBarList,
     nav: [
       {
         text: 'GitHub',

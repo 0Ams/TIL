@@ -1,7 +1,9 @@
 const fs = require('fs');
 const _ = require('lodash');
+const sourceDir = './documents';
+
 function getFiles(name) {
-  const files = fs.readdirSync(`./documents/${name}`);
+  const files = fs.readdirSync(`${sourceDir}/${name}`);
   return _.without(
     _.map(files, (f) => {
       if (f !== 'images' && !f.includes('.temp')) return `${name}/${f}`;
@@ -10,10 +12,22 @@ function getFiles(name) {
   );
 }
 
-exports.GeneralList = getFiles('General');
-exports.MSAList = getFiles('MSA');
-exports.ETCList = getFiles('ETC');
-exports.vscodeList = getFiles('vscode');
-exports.PTList = getFiles('PT');
-exports.PlatformList = getFiles('Platform');
-exports.TheoryList = getFiles('Theory');
+function getCategory() {
+  return fs
+    .readdirSync(sourceDir, {withFileTypes: true})
+    .filter((dirent) => dirent.isDirectory())
+    .map((dirent) => dirent.name)
+    .filter((key) => key !== '.vuepress');
+}
+
+function makeSideBar() {
+  const list = getCategory();
+  return list.map((name) => {
+    return {
+      title: name,
+      children: getFiles(name),
+    };
+  });
+}
+
+exports.sideBarList = makeSideBar();
