@@ -9,7 +9,7 @@
         <div class="name">Eddie's TIL</div>
         <ul>
           <li>
-            <a href="https://0ams.github.io/">Blog</a>
+            <a href="https://0ams.github.io/TIL">Blog</a>
           </li>
           <li>
             <a href="https://github.com/0ams">GitHub</a>
