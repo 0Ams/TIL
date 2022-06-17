@@ -1,9 +1,11 @@
 ---
+layout: post
 title: 'javascript에 타입을 체크해보자'
 date: 2022-06-10 00:00:00
 category: 'general'
 writer: 10ms
-draft: false
+tags: [js, nodejs, function]
+comments: false
 ---
 
 # 레퍼런스
@@ -39,9 +41,10 @@ const a: number = '0';
 ```
 
 2. 실행
-```
+```sh
 $ npm run flow
 ```
+
 ![](./images/2022-04-07-12-20-30.png)
 * 위와 같이 에러가 발생하는 것을 볼 수 있게 된다.
 
