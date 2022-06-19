@@ -2,11 +2,15 @@ const fs = require('fs');
 const _ = require('lodash');
 const sourceDir = './documents';
 
+let total = 0;
 function getFiles(name) {
   const files = fs.readdirSync(`${sourceDir}/${name}`);
   return _.without(
     _.map(files, (f) => {
-      if (f !== 'images' && !f.includes('.temp')) return `${name}/${f}`;
+      if (f !== 'images' && !f.includes('.temp')) {
+        total++;
+        return `${name}/${f}`;
+      }
     }),
     undefined
   );
@@ -30,4 +34,5 @@ function makeSideBar() {
   });
 }
 
+exports.total = total;
 exports.sideBarList = makeSideBar();
