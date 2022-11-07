@@ -2,7 +2,7 @@
 layout: post
 title: "Bracket Pair Colorizer for vscode's extensions"
 date: 2021-04-12
-excerpt: "vscode recommand extensions"
+excerpt: 'vscode recommand extensions'
 writer: '10ms'
 tags: [vscode, extensions]
 comments: false
@@ -16,4 +16,5 @@ comments: false
 > 사용자 지정 브래킷 문자도 구성할 수 있으며 활성 범위에 배경색을 추가할 수도 있음.
 
 ## example
+
 ![](./images/2021-04-12-00-33-06.png)

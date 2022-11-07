@@ -1,8 +1,8 @@
 ---
-title: "Error Lens"
+title: 'Error Lens'
 date: 2022-06-22
 category: 'vscode'
-excerpt: "vscode Error Lens 소개"
+excerpt: 'vscode Error Lens 소개'
 writer: 10ms
 tags: [vscode, extension, 다이어그램, 그림그리기]
 comments: false

@@ -1,17 +1,19 @@
 ---
-title: "k8s Service Tutorial"
+title: 'k8s Service Tutorial'
 date: 2022-06-22
 category: 'MSA'
-excerpt: "Service를 이용하여 Pod을 노출하고 k8s 외부에서 접근할 수 있는 방법"
+excerpt: 'Service를 이용하여 Pod을 노출하고 k8s 외부에서 접근할 수 있는 방법'
 writer: 10ms
 tags: [k8s, msa, service, nodeports, clusterip, loadbalancer]
 comments: false
 ---
 
 # k8s Service들에 대한 이야기
-* k8s svc에 대한 정의와 어디에 사용 하는지에 대한 설명을 적어봅니다.
+
+- k8s svc에 대한 정의와 어디에 사용 하는지에 대한 설명을 적어봅니다.
 
 # Service
+
 > Pod은 자체 IP를 가지고 다른 Pod과 통신할 수 있지만, 쉽게 사라지고 생성되는 특징 때문에 직접 통신하는 방법은 권장하지 않고 있다.
 > k8s는 Pod과 직접 통신하는 방법 대신, 별도의 고정된 IP를 가진 서비스를 만들고 그 서비스를 통해 Pod에 접근하는 방식을 사용 하고 있다.
 > 그걸 할 수 있도록 도와 주는게 Service이다
@@ -69,6 +71,7 @@ spec:
 ```
 
 redis를 먼저 실행 해서 만들어보자.
+
 ```sh
 $ kubectl apply -f test-redis-svc.yml
 
@@ -76,7 +79,8 @@ $ kubectl apply -f test-redis-svc.yml
 $ kubectl get all
 ```
 
-*실행 결과*
+_실행 결과_
+
 ```sh
 NAME                         READY   STATUS    RESTARTS   AGE
 pod/redis-67d485db42-mf5w5   1/1     Running   0          24s
@@ -100,8 +104,8 @@ redis Deployment와 Service가 생성된 것을 볼 수 있다.
 
 CluterIP 서비스의 설정을 살펴보자.
 
-| Define                  | Description                                         |
-| --------------------- | -------------------------------------------- |
+| Define                  | Description                                    |
+| ----------------------- | ---------------------------------------------- |
 | `spec.ports.port`       | 서비스가 생성할 Port                           |
 | `spec.ports.targetPort` | 서비스가 접근할 Pod의 Port (기본: port랑 동일) |
 | `spec.selector`         | 서비스가 접근할 Pod의 label 조건               |
@@ -110,6 +114,7 @@ CluterIP 서비스의 설정을 살펴보자.
 그리고 해당 Pod을 6379 포트로 연결하였다.
 
 이제 redis에 접근할 test 앱을 deployment로 만든다.
+
 ```yml
 apiVersion: apps/v1
 kind: Deployment
@@ -131,10 +136,11 @@ spec:
           image: ghcr.io/subicura/test:latest
           env:
             - name: REDIS_HOST
-              value: "redis"
+              value: 'redis'
             - name: REDIS_PORT
-              value: "6379"
+              value: '6379'
 ```
+
 test app Pod에서 redis Pod으로 접근이 되는지 테스트 해보자.
 
 ```sh
@@ -153,7 +159,8 @@ $ kubectl exec -it $(k get po -lapp=test --output=jsonpath={.items[0].metadata.n
 Service를 통해 Pod과 성공적으로 연결할 수 있다.
 
 ## Service 생성 Flow
-> Service는 각 Pod를 바라보는 로드밸런서 역할을 하면서 내부 도메인서버에 새로운 도메인을 생성한다. 
+
+> Service는 각 Pod를 바라보는 로드밸런서 역할을 하면서 내부 도메인서버에 새로운 도메인을 생성한다.
 > Service가 어떻게 동작하는지 살펴보자.
 
 ```mermaid
@@ -182,6 +189,7 @@ sequenceDiagram
 
   Note right of D: Service 변경시<br />CoreDNS 설정
 ```
+
 1. `Endpoint Controller`는 `Service`와 `Pod`을 감시하면서 조건에 맞는 Pod의 IP를 수집
 2. `Endpoint Controller`가 수집한 IP를 가지고 `Endpoint` 생성
 3. `Kube-Proxy`는 `Endpoint` 변화를 감시하고 노드의 iptables을 설정
@@ -197,9 +205,10 @@ iptables는 규칙이 많아지면 성능이 느려지는 이슈가 있어, `ipv
 CoreDNS는 클러스터에서 호환성을 위해 `kube-dns`라는 이름으로 생성된다.
 :::
 
-갑자기 Endpoint가 나왔다. Endpoint는 서비스의 접속 정보를 가지고 있다. 
+갑자기 Endpoint가 나왔다. Endpoint는 서비스의 접속 정보를 가지고 있다.
 
 Endpoint의 상태를 살펴보면 아래와 같이 볼 수 있다.
+
 ```sh
 $ kubectl get endpoints
 $ kubectl get ep #줄여서
@@ -208,7 +217,7 @@ $ kubectl get ep #줄여서
 $ kubectl describe ep/redis
 ```
 
-*실행 결과*
+_실행 결과_
 
 ```sh
 Name:         redis
@@ -229,7 +238,7 @@ Endpoint Addresses 정보에 Redis Pod의 IP가 보이게 된다. (Replicas가 �
 
 ## Service(NodePort) 만들기
 
-`CluterIP`는 클러스터 내부에서만 접근할 수 있다. 
+`CluterIP`는 클러스터 내부에서만 접근할 수 있다.
 클러스터 외부(노드)에서 접근할 수 있도록 `NodePort` 서비스를 만들어보자.
 
 ```yml
@@ -248,8 +257,8 @@ spec:
     tier: app
 ```
 
-| Define                 | Description                                                     |
-| --------------------- | -------------------------------------------------------- |
+| Define                | Description                                                |
+| --------------------- | ---------------------------------------------------------- |
 | `spec.ports.nodePort` | Node에 오픈할 Port (미지정시 30000-32768 중에 자동 할당됨) |
 
 `test app`을 해당 노드의 31001으로 오픈하였다.
@@ -261,7 +270,7 @@ $ kubectl apply -f test-nodeport.yml
 $ kubectl get svc
 ```
 
-*실행 결과*
+_실행 결과_
 
 ```sh
 NAME         TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)          AGE
@@ -282,7 +291,7 @@ Docker driver를 사용중이라면 `minikube service test-np` 명령어를 이�
 
 ![](./images/2022-06-13-20-36-14.png)
 
-`NodePort`는 클러스터의 모든 노드에 포트를 오픈하여 접근 할 수 있도록 한다. 
+`NodePort`는 클러스터의 모든 노드에 포트를 오픈하여 접근 할 수 있도록 한다.
 지금은 하나의 노드밖에 없지만 여러 개의 노드가 있다면 아무 노드로 접근해도 지정한 Pod으로 쏘옥 접근할 수 있다.
 
 ![](./images/2022-06-13-20-36-28.png)
@@ -300,12 +309,12 @@ Type=NodePort인 서비스로 보내진 패킷은 소스 NAT가 기본으로 적
 
 ## Service(LoadBalancer) 만들기
 
-NodePort의 단점은 노드가 사라졌을 때 자동으로 다른 노드를 통해 접근이 불가능하다는 점이다. 
+NodePort의 단점은 노드가 사라졌을 때 자동으로 다른 노드를 통해 접근이 불가능하다는 점이다.
 예를 들어, 3개의 노드가 있다면 3개 중에 아무 노드로 접근해도 `NodePort`로 연결할 수 있지만 어떤 노드가 살아 있는지는 알 수는 없다.
 
 ![](./images/2022-06-13-20-36-54.png)
 
-자동으로 살아 있는 노드에 접근하기 위해 모든 노드를 바라보는 `Load Balancer`가 필요하다. 
+자동으로 살아 있는 노드에 접근하기 위해 모든 노드를 바라보는 `Load Balancer`가 필요하다.
 Client는 NodePort에 직접 요청을 보내는 것이 아니라 `Load Balancer`에 요청하고 Load Balancer가 알아서 살아 있는 노드에 접근하면 NodePort의 단점을 없앨 수 있다.
 
 Load Balancer를 생성해 보자.
@@ -330,7 +339,7 @@ spec:
 $ kubectl apply -f test-lb.yml
 ```
 
-*실행 결과*
+_실행 결과_
 
 ```sh
 NAME         TYPE           CLUSTER-IP       EXTERNAL-IP   PORT(S)           AGE
@@ -390,7 +399,7 @@ $ kubectl apply -f metallb-cm.yml
 $ kubectl get svc
 ```
 
-*실행 결과*
+_실행 결과_
 
 ```sh
 NAME         TYPE           CLUSTER-IP       EXTERNAL-IP   PORT(S)           AGE
@@ -416,9 +425,9 @@ LoadBalancer는 NodePort의 기능을 기본으로 포함된다.
 파고들면 한없이 복잡하고 어려운 부분이 많아서 일단 그렇구나.. 하고 넘어가는게 맘이 편하였다...
 
 실전에선 NodePort와 LoadBalancer를 제한적으로 사용한다.
-보통 웹 애플리케이션을 배포하면 80 또는 443 포트를 사용하고 하나의 포트에서 여러 개의 서비스를 도메인이나 경로에 따라 다르게 연결하기 때문이다. 
+보통 웹 애플리케이션을 배포하면 80 또는 443 포트를 사용하고 하나의 포트에서 여러 개의 서비스를 도메인이나 경로에 따라 다르게 연결하기 때문이다.
 
 ## 참고
 
-* [Service v1 core](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.24/#service-v1-core)
-* [k8s 네트워크](https://www.edureka.co/blog/kubernetes-networking)
+- [Service v1 core](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.24/#service-v1-core)
+- [k8s 네트워크](https://www.edureka.co/blog/kubernetes-networking)

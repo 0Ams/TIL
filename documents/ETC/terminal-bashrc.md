@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "terminal 새창 열 때 동작 등록"
+title: 'terminal 새창 열 때 동작 등록'
 date: 2019-02-19
-excerpt: "터미널을 열때, 특정 동작을 하도록 할 수 있다!!"
+excerpt: '터미널을 열때, 특정 동작을 하도록 할 수 있다!!'
 writer: 10ms
 tags: [terminal, .bash_profile, .bash_rc]
 comments: false
@@ -10,10 +10,10 @@ comments: false
 
 # Terminal 새창 열 때 동작 등록
 
--   terminal 새창을 열 때 특정 동작을 등록 할 수 있다.
--   env와 같은 값을 설정 할 수 있다.
--   이외의 bash script를 실행 할 수 있도록 할 수 있다.
--   user에 따라 커스터 마이징 해서 사용 할 수 있다.
+- terminal 새창을 열 때 특정 동작을 등록 할 수 있다.
+- env와 같은 값을 설정 할 수 있다.
+- 이외의 bash script를 실행 할 수 있도록 할 수 있다.
+- user에 따라 커스터 마이징 해서 사용 할 수 있다.
 
 # How to
 

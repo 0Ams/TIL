@@ -7,12 +7,14 @@ draft: false
 ---
 
 # ulimit 이란?
-* ulimit는 프로세스의 자원 한도를 설정하는 명령, soft한도,hard한도 두가지로 나뉨
-  * soft : 새로운 프로그램을 생성하면 기본으로 적용되는 한도
-  * hard : 소프트한도에서 최대로 늘릴 수 있는 한도
-*  프로세스(서비스)에 연결되는 유저가 많을 수록 증가됨
+
+- ulimit는 프로세스의 자원 한도를 설정하는 명령, soft한도,hard한도 두가지로 나뉨
+  - soft : 새로운 프로그램을 생성하면 기본으로 적용되는 한도
+  - hard : 소프트한도에서 최대로 늘릴 수 있는 한도
+- 프로세스(서비스)에 연결되는 유저가 많을 수록 증가됨
 
 # ulimit [옵션] 값 ( Centos , RHEL 기준)
+
 -a : 모든 제한 사항을 보여줌.
 -c : 최대 코어 파일 사이즈
 -d : 프로세스 데이터 세그먼트의 최대 크기
@@ -25,7 +27,8 @@ draft: false
 -S : soft 한도
 -H : hard 한도
 
-* 각 항목의 설명
+- 각 항목의 설명
+
 ```sh
 $ ulimit -a         // Soft 설정 보기
 $ ulimit -aH        // Hard 설정 보기
@@ -34,8 +37,8 @@ $ ulimit -aH        // Hard 설정 보기
 ```sh
 core file size          (blocks, -c) 0                             : 코어파일의 최대크기
 data seg size           (kbytes, -d) unlimited               : 프로세스의 데이터 세그먼트 최대크기
-scheduling priority             (-e) 0                  
-file size               (blocks, -f) unlimited                    :쉘에서 생성되는 파일일 최대크기              
+scheduling priority             (-e) 0
+file size               (blocks, -f) unlimited                    :쉘에서 생성되는 파일일 최대크기
 pending signals                 (-i) 14943
 max locked memory       (kbytes, -l) 64
 max memory size         (kbytes, -m) unlimited           : resident set size의 최대 크기(메모리 최대크기)
@@ -51,8 +54,11 @@ file locks                      (-x) unlimited
 ```
 
 # 설정방법
+
 ## 1. ulimit 명령을 통한 변경
-* -n –u 를 사용하여 max user process 와 open files 개수를 수정 합니다.
+
+- -n –u 를 사용하여 max user process 와 open files 개수를 수정 합니다.
+
 ```sh
 $ ulimit -n 2048
 $ ulimit -u 4096
@@ -64,19 +70,24 @@ max user processes              (-u) 4096
 ```
 
 ## 2. /etc/security/limits.conf 설정 파일 수정
+
 ```sh
-$ vi /etc/security/limits.conf 
+$ vi /etc/security/limits.conf
 ...중략
 *           soft    nproc          4096
 *           hard    nproc          4096
 ```
 
 ## 참고 user별로 설정 가능
+
 ```sh
 $ source /etc/profile
 ```
+
 ## 3. 확인
-* 재 로그인 or 리부팅할 경우 기본 설정으로 적용됨
+
+- 재 로그인 or 리부팅할 경우 기본 설정으로 적용됨
+
 ```sh
 # ulimit -aH
 core file size          (blocks, -c) unlimited

@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Reveal in Vscode"
+title: 'Reveal in Vscode'
 date: 2022-05-19
-excerpt: "Reveal 사용 방법"
+excerpt: 'Reveal 사용 방법'
 writer: 10ms
 tags: [general, ppt]
 comments: false
@@ -19,32 +19,37 @@ F키 또는 F11를 누르면 전체화면으로 전환됨
 ---
 
 # Reveal
-* reveal.js는 ppt처럼 발표 슬라이드를 구성하는데 사용하는 도구
-* html, css, javascript를 이용해서 구성됨
+
+- reveal.js는 ppt처럼 발표 슬라이드를 구성하는데 사용하는 도구
+- html, css, javascript를 이용해서 구성됨
 
 --
 
 [reveal](https://github.com/hakimel/reveal.js)
-* npm에서 받아서 세팅해서 사용하는게 기본 방법임.
+
+- npm에서 받아서 세팅해서 사용하는게 기본 방법임.
 
 ---
 
 # reveal-markdown
-* vscode에서 reveal.js를 쉽게 사용 할 수 있도록 해주는 extension
+
+- vscode에서 reveal.js를 쉽게 사용 할 수 있도록 해주는 extension
 
 --
 
 ## tutorial
+
 ```markdown
 ---
-theme : "night"
-transition: "slide"
-highlightTheme: "moon"
+theme: 'night'
+transition: 'slide'
+highlightTheme: 'moon'
 slideNumber: false
-title: "VSCode Reveal intro"
+title: 'VSCode Reveal intro'
 ---
 ```
-* 위와 같이 markdown파일 상단에 설정을 해준다.
+
+- 위와 같이 markdown파일 상단에 설정을 해준다.
 
 --
 
@@ -53,21 +58,24 @@ title: "VSCode Reveal intro"
 ---
 
 # TODO
-* reveal에서 사용될 이미지는 연결을 어떻게 할 수 있을까?
+
+- reveal에서 사용될 이미지는 연결을 어떻게 할 수 있을까?
 
 ---
+
 ![](./images/2022-05-02-09-09-27.png)
 
 ---
 
 ---
+
 # vuepress 와 reveal 혼합
-* vuepress 에서 reveal을 사용 할 수 있다. 
-* F11 또는 F키를 누르면 전체화면으로 전환됨
+
+- vuepress 에서 reveal을 사용 할 수 있다.
+- F11 또는 F키를 누르면 전체화면으로 전환됨
 
 ---
 
-END
----
+## END
 
 @slideend
